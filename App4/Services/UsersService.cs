@@ -23,13 +23,12 @@ namespace App4.Services
         {
             return _usersRepository.GetUsers();
         }
-        public Users GetUsersById(int Id)
-        {
-            return _usersRepository.GetUsersById(Id);
-        }
         public Users GetUsersAutentication(string Correo, string Password)
         {
-            return _usersRepository.GetUsersAutentication(Correo,Password);
+            
+                return _usersRepository.GetUsersAutentication(Correo, Password);
+         
+           
         }
         public bool GetUsersAutenticationBool(string Correo, string Password)
         {

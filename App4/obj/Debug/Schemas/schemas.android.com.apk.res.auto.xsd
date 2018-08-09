@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v26</xs:documentation>
-    <xs:documentation>16/07/2018 19:00:12</xs:documentation>
+    <xs:documentation>04/08/2018 16:51:33</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -1652,8 +1652,17 @@
             <xs:enumeration value="@string/enter_required_fields_thank_you" />
             <xs:enumeration value="@string/escialista" />
             <xs:enumeration value="@string/especialistas_ipsum" />
+            <xs:enumeration value="@string/form_dateCita" />
+            <xs:enumeration value="@string/form_dni" />
             <xs:enumeration value="@string/form_email" />
+            <xs:enumeration value="@string/form_firstSurname" />
+            <xs:enumeration value="@string/form_name" />
+            <xs:enumeration value="@string/form_nameLogin" />
             <xs:enumeration value="@string/form_password" />
+            <xs:enumeration value="@string/form_passwordConfirm" />
+            <xs:enumeration value="@string/form_secondSurname" />
+            <xs:enumeration value="@string/form_timeCita" />
+            <xs:enumeration value="@string/form_username" />
             <xs:enumeration value="@string/menu_settings" />
             <xs:enumeration value="@string/password_required_error_message" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -4802,8 +4811,17 @@
             <xs:enumeration value="@string/enter_required_fields_thank_you" />
             <xs:enumeration value="@string/escialista" />
             <xs:enumeration value="@string/especialistas_ipsum" />
+            <xs:enumeration value="@string/form_dateCita" />
+            <xs:enumeration value="@string/form_dni" />
             <xs:enumeration value="@string/form_email" />
+            <xs:enumeration value="@string/form_firstSurname" />
+            <xs:enumeration value="@string/form_name" />
+            <xs:enumeration value="@string/form_nameLogin" />
             <xs:enumeration value="@string/form_password" />
+            <xs:enumeration value="@string/form_passwordConfirm" />
+            <xs:enumeration value="@string/form_secondSurname" />
+            <xs:enumeration value="@string/form_timeCita" />
+            <xs:enumeration value="@string/form_username" />
             <xs:enumeration value="@string/menu_settings" />
             <xs:enumeration value="@string/password_required_error_message" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -12589,8 +12607,17 @@
             <xs:enumeration value="@string/enter_required_fields_thank_you" />
             <xs:enumeration value="@string/escialista" />
             <xs:enumeration value="@string/especialistas_ipsum" />
+            <xs:enumeration value="@string/form_dateCita" />
+            <xs:enumeration value="@string/form_dni" />
             <xs:enumeration value="@string/form_email" />
+            <xs:enumeration value="@string/form_firstSurname" />
+            <xs:enumeration value="@string/form_name" />
+            <xs:enumeration value="@string/form_nameLogin" />
             <xs:enumeration value="@string/form_password" />
+            <xs:enumeration value="@string/form_passwordConfirm" />
+            <xs:enumeration value="@string/form_secondSurname" />
+            <xs:enumeration value="@string/form_timeCita" />
+            <xs:enumeration value="@string/form_username" />
             <xs:enumeration value="@string/menu_settings" />
             <xs:enumeration value="@string/password_required_error_message" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -15928,8 +15955,17 @@
             <xs:enumeration value="@string/enter_required_fields_thank_you" />
             <xs:enumeration value="@string/escialista" />
             <xs:enumeration value="@string/especialistas_ipsum" />
+            <xs:enumeration value="@string/form_dateCita" />
+            <xs:enumeration value="@string/form_dni" />
             <xs:enumeration value="@string/form_email" />
+            <xs:enumeration value="@string/form_firstSurname" />
+            <xs:enumeration value="@string/form_name" />
+            <xs:enumeration value="@string/form_nameLogin" />
             <xs:enumeration value="@string/form_password" />
+            <xs:enumeration value="@string/form_passwordConfirm" />
+            <xs:enumeration value="@string/form_secondSurname" />
+            <xs:enumeration value="@string/form_timeCita" />
+            <xs:enumeration value="@string/form_username" />
             <xs:enumeration value="@string/menu_settings" />
             <xs:enumeration value="@string/password_required_error_message" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -16028,8 +16064,17 @@
             <xs:enumeration value="@string/enter_required_fields_thank_you" />
             <xs:enumeration value="@string/escialista" />
             <xs:enumeration value="@string/especialistas_ipsum" />
+            <xs:enumeration value="@string/form_dateCita" />
+            <xs:enumeration value="@string/form_dni" />
             <xs:enumeration value="@string/form_email" />
+            <xs:enumeration value="@string/form_firstSurname" />
+            <xs:enumeration value="@string/form_name" />
+            <xs:enumeration value="@string/form_nameLogin" />
             <xs:enumeration value="@string/form_password" />
+            <xs:enumeration value="@string/form_passwordConfirm" />
+            <xs:enumeration value="@string/form_secondSurname" />
+            <xs:enumeration value="@string/form_timeCita" />
+            <xs:enumeration value="@string/form_username" />
             <xs:enumeration value="@string/menu_settings" />
             <xs:enumeration value="@string/password_required_error_message" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -17099,8 +17144,17 @@
             <xs:enumeration value="@string/enter_required_fields_thank_you" />
             <xs:enumeration value="@string/escialista" />
             <xs:enumeration value="@string/especialistas_ipsum" />
+            <xs:enumeration value="@string/form_dateCita" />
+            <xs:enumeration value="@string/form_dni" />
             <xs:enumeration value="@string/form_email" />
+            <xs:enumeration value="@string/form_firstSurname" />
+            <xs:enumeration value="@string/form_name" />
+            <xs:enumeration value="@string/form_nameLogin" />
             <xs:enumeration value="@string/form_password" />
+            <xs:enumeration value="@string/form_passwordConfirm" />
+            <xs:enumeration value="@string/form_secondSurname" />
+            <xs:enumeration value="@string/form_timeCita" />
+            <xs:enumeration value="@string/form_username" />
             <xs:enumeration value="@string/menu_settings" />
             <xs:enumeration value="@string/password_required_error_message" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -17730,8 +17784,17 @@
             <xs:enumeration value="@string/enter_required_fields_thank_you" />
             <xs:enumeration value="@string/escialista" />
             <xs:enumeration value="@string/especialistas_ipsum" />
+            <xs:enumeration value="@string/form_dateCita" />
+            <xs:enumeration value="@string/form_dni" />
             <xs:enumeration value="@string/form_email" />
+            <xs:enumeration value="@string/form_firstSurname" />
+            <xs:enumeration value="@string/form_name" />
+            <xs:enumeration value="@string/form_nameLogin" />
             <xs:enumeration value="@string/form_password" />
+            <xs:enumeration value="@string/form_passwordConfirm" />
+            <xs:enumeration value="@string/form_secondSurname" />
+            <xs:enumeration value="@string/form_timeCita" />
+            <xs:enumeration value="@string/form_username" />
             <xs:enumeration value="@string/menu_settings" />
             <xs:enumeration value="@string/password_required_error_message" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -19358,8 +19421,17 @@
             <xs:enumeration value="@string/enter_required_fields_thank_you" />
             <xs:enumeration value="@string/escialista" />
             <xs:enumeration value="@string/especialistas_ipsum" />
+            <xs:enumeration value="@string/form_dateCita" />
+            <xs:enumeration value="@string/form_dni" />
             <xs:enumeration value="@string/form_email" />
+            <xs:enumeration value="@string/form_firstSurname" />
+            <xs:enumeration value="@string/form_name" />
+            <xs:enumeration value="@string/form_nameLogin" />
             <xs:enumeration value="@string/form_password" />
+            <xs:enumeration value="@string/form_passwordConfirm" />
+            <xs:enumeration value="@string/form_secondSurname" />
+            <xs:enumeration value="@string/form_timeCita" />
+            <xs:enumeration value="@string/form_username" />
             <xs:enumeration value="@string/menu_settings" />
             <xs:enumeration value="@string/password_required_error_message" />
             <xs:enumeration value="@string/password_toggle_content_description" />

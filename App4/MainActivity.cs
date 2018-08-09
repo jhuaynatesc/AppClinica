@@ -8,6 +8,9 @@ using Android.Content;
 using Android.Views;
 using Android.Support.Design.Widget;
 using App4.Services;
+using App4.Activities;
+using System;
+
 namespace App4
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
@@ -21,7 +24,7 @@ namespace App4
         private TextInputLayout emailLayout;
         private TextInputEditText emailView;
         private View rootView;
-
+        private ISharedPreferences session;
         private UsersService _usersService = new UsersService();
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,8 +45,9 @@ namespace App4
             btnLogin.Click += BtnLoginClick;
             btnRegister.Click += BtnRegisterClick;
 
-            emailView.Text = "jhuaynatesc@gmail.com";
-            passwordView.Text = "abc123++";
+            emailView.Text = "javier@gmail.com";
+            passwordView.Text = "abc123";
+            session = GetSharedPreferences("SessionLogin", FileCreationMode.Private);
         }
         private void BtnLoginClick(object sender,System.EventArgs e)
         {
@@ -59,27 +63,33 @@ namespace App4
             bool isValid = ValidateEmail()&&ValidatePassword();
             if (isValid)
             {
-                pgrLogin.Visibility = ViewStates.Visible;
-                Thread.Sleep(2000);
-                var users = _usersService.GetUsersAutentication(emailView.Text, passwordView.Text);
-                if (users != null)
-                {
-                    Toast.MakeText(this, "Bienvenido...", ToastLength.Long).Show();
-                    pgrLogin.Visibility = ViewStates.Invisible;
+                
+                    var users = _usersService.GetUsersAutentication(emailView.Text, passwordView.Text);
+                    if (users != null)
+                    {
+                        ISharedPreferencesEditor sessionEditor = NewMethod();
+                        sessionEditor.PutString("SessionName", users.pNombres);
+                        sessionEditor.PutString("SessionId", Convert.ToString(users.id));
+                        sessionEditor.PutString("SessionUserName", users.pUsuario);
+                        sessionEditor.PutString("SessionCorreo", users.pCorreoE);
+                        sessionEditor.Commit();
+                        Toast.MakeText(this, "Bienvenido " + users.pUsuario, ToastLength.Long).Show();
+                        pgrLogin.Visibility = ViewStates.Invisible;
 
-                    Intent newActivity = new Intent(this, typeof(Activities.MenuPrincipal));
-                    Finish();
-                    StartActivity(newActivity);
+                        Intent newActivity = new Intent(this, typeof(Activities.MenuPrincipal));
+                        Finish();
+                        StartActivity(newActivity);
 
-                }
-                else
-                {
+                    }
+                    else
+                    {
 
-                    Toast.MakeText(this, "Clave incorrecta", ToastLength.Long).Show();
-                    pgrLogin.Visibility = ViewStates.Invisible;
+                        Toast.MakeText(this, "Clave incorrecta", ToastLength.Long).Show();
+                        pgrLogin.Visibility = ViewStates.Invisible;
 
-                    return;
-                }
+                        return;
+                    }
+               
             }
             else
             {
@@ -87,6 +97,12 @@ namespace App4
                 return;
             }
         }
+
+        private ISharedPreferencesEditor NewMethod()
+        {
+            return session.Edit();
+        }
+
         private void BtnRegisterClick(object sende, System.EventArgs e)
         {
             Intent newActivity = new Intent(this, typeof(registerLogin));

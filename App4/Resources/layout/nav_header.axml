@@ -13,7 +13,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#000"
+        android:id="@+id/txtViewNameLogin"
+        android:text="@string/form_nameLogin"
         android:layout_gravity="bottom|center" />
 </FrameLayout>

@@ -79,15 +79,6 @@
             android:layout_marginLeft="20sp"
             android:textColor="#fff"
             android:layout_marginRight="20sp" />
-        <Button
-            android:text="Recuperar contraseña"
-            android:id="@+id/btnRecuperar"
-            android:backgroundTint="#0f658a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:textColor="#fff"
-            android:layout_marginRight="20sp" />
         <ProgressBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

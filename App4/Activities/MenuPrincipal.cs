@@ -24,11 +24,14 @@ using App4.Fragments;
 
 namespace App4.Activities
 {
-    [Activity(Label = "menuPrincipal",Theme="@style/Theme.DesignDemo")]
+    [Activity(Label = "menuPrincipal", Theme = "@style/Theme.DesignDemo")]
     public class MenuPrincipal : AppCompatActivity
     {
         private DrawerLayout mDrawerLayout;
-      
+        public string userName;
+        public string userId;
+        public string userMessage;
+        public ISharedPreferences session;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -43,13 +46,14 @@ namespace App4.Activities
             ab.SetDisplayHomeAsUpEnabled(true);
             mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
-            if(navigationView!=null)
+            if (navigationView != null)
             {
                 SetUpDrawerContent(navigationView);
 
             }
             TabLayout tabs = FindViewById<TabLayout>(Resource.Id.tabs);
             ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
+
             SetUpViewPager(viewPager);
             tabs.SetupWithViewPager(viewPager);
 
@@ -63,13 +67,14 @@ namespace App4.Activities
                     })
                     .Show();
             };
+            
         }
         private void SetUpViewPager(ViewPager viewPager)
         {
             TabAdapter adapter = new TabAdapter(SupportFragmentManager);
-            adapter.AddFragment(new Fragment1(),"Especialidades");
+            adapter.AddFragment(new Fragment1(), "Especialidades");
             adapter.AddFragment(new Fragment2(), "Cita");
-            adapter.AddFragment(new Fragment3(), "Especialistas");
+            adapter.AddFragment(new Fragment4(), "Recordatorio");
 
             viewPager.Adapter = adapter;
         }
@@ -83,21 +88,44 @@ namespace App4.Activities
                 default:
                     return base.OnOptionsItemSelected(item);
             }
-            
+
         }
         private void SetUpDrawerContent(NavigationView navigationView)
         {
+            
             navigationView.NavigationItemSelected += (object sender, NavigationView.NavigationItemSelectedEventArgs e) =>
-              {
-                  e.MenuItem.SetChecked(true);
-                  mDrawerLayout.CloseDrawers();
-              };
+            {
+                e.MenuItem.SetChecked(true);
+                mDrawerLayout.CloseDrawers();
+                var item = e.MenuItem.ToString();
+                var trans= SupportFragmentManager.BeginTransaction();
+                switch (item)
+                {
+                    case "Citas":
+                        trans.Add(Resource.Id.viewpager, new Fragment2(), "Citas");
+                        trans.Commit();
+                        break;
+                    case "Salir":
+
+                        session = GetSharedPreferences("SessionLogin", FileCreationMode.Private);
+                        ISharedPreferencesEditor sessionEditor = session.Edit();
+                        sessionEditor.Remove("SessionName");
+                        sessionEditor.Remove("SessionId");
+                        sessionEditor.Remove("SessionUserName");
+                        sessionEditor.Remove("SessionCorreo");
+                        sessionEditor.Commit();
+                        Finish();
+                        break;
+                }
+                    
+                Toast.MakeText(this, item, ToastLength.Long).Show();
+            };
         }
-        public class TabAdapter:FragmentPagerAdapter
+        public class TabAdapter : FragmentPagerAdapter
         {
             public List<SupportFragment> Fragments { get; set; }
             public List<string> FragmentNames { get; set; }
-            public TabAdapter (SupportFragmentManager sfm):base(sfm)
+            public TabAdapter(SupportFragmentManager sfm) : base(sfm)
             {
                 Fragments = new List<SupportFragment>();
                 FragmentNames = new List<string>();
@@ -126,8 +154,10 @@ namespace App4.Activities
         }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            
             MenuInflater.Inflate(Resource.Menu.MyMenu, menu);
+            ISharedPreferences preferences = GetSharedPreferences("SessionLogin",FileCreationMode.Private);
+            TextView ViewnName = FindViewById<TextView>(Resource.Id.txtViewNameLogin);
+            ViewnName.Text = preferences.GetString("SessionUserName", "");
             return base.OnCreateOptionsMenu(menu);
         }
     }

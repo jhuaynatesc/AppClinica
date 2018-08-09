@@ -14,10 +14,13 @@ namespace App4.Models
 {
     public class Users
     {
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Correo { get; set; }
-        public string Password { get; set; }
-        public string Tipo { get; set; }
+        public int id { get; set; }
+        public string pUsuario { get; set; }
+        public string pNombres { get; set; }
+        public string pApellidoPaterno { get; set; }
+        public string pApellidoMaterno { get; set; }
+        public string pCorreoE { get; set; }
+        public string pEstado { get; set; }
+        public string pDNI { get; set; }
     }
 }

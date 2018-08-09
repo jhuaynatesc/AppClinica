@@ -10,52 +10,26 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using App4.Models;
+using App4.Services;
 namespace App4.Data
 {
     public class UsersRepository
     {
         private List<Users> _users;
+        private WebServices _webServices;
         public UsersRepository()
         {
-            _users = new List<Users>()
-            {
-                new Users()
-                {
-                    Id = 1,
-                    Nombre = "Javier",
-                    Correo = "jhuaynatesc@gmail.com",
-                    Password = "abc123++",
-                    Tipo = "Admin"
-                },
-                new Users()
-                {
-                    Id = 2,
-                    Nombre = "Javier",
-                    Correo = "admin@gmail.com",
-                    Password = "abc123++",
-                    Tipo = "Admin"
-                },
-                new Users()
-                {
-                    Id = 3,
-                    Nombre = "Javier",
-                    Correo = "alexitwo@gmail.com",
-                    Password = "abc123++",
-                    Tipo = "Admin"
-                }
-            };
+             _webServices = new WebServices();
         }
         public List<Users> GetUsers()
         {
             return _users;
         }
-        public Users GetUsersById(int Id)
-        {
-            return _users.FirstOrDefault(x => x.Id == Id);
-        }
         public Users GetUsersAutentication(string Correo, string Password)
         {
-            return _users.FirstOrDefault(x => x.Correo == Correo && x.Password == Password);
+            string dataString = @"{""correo"":""" + Correo + @""",""password"":""" + Password + @"""}";
+            var response = _webServices.POST(ValuesService.ApiUrl + "pacientes/login", dataString);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Users>(response.Content);
         }
     }
 }

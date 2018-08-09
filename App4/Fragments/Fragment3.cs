@@ -27,6 +27,7 @@ namespace App4.Fragments
             // Use this to return your custom view for this Fragment
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
             View view = inflater.Inflate(Resource.Layout.FragmentEspecialistas, container, false);
+            
             return View;
         }
     }
